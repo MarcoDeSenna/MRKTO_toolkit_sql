@@ -1,6 +1,7 @@
 -- ADVANCED SQL
 -- author: Marco Antônio de Senna Lamolha
 -- company: MRKTO Data Analytics
+
 -- Thanks 365DataScience
 
 
