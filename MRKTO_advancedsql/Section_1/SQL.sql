@@ -1,22 +1,17 @@
--- ADVANCED SQL
--- author: Marco Antônio de Senna Lamolha
--- company: MRKTO Data Analytics
+-- Active: 1730444673961@@127.0.0.1@5432@postgres@mrkto
+-- This code runs with postgresql
 
--- Thanks 365DataScience
+CREATE DATABASE IF NOT EXISTS MRKTO;
 
-
-CREATE DATABASE MRKTO;
-
-CREATE SCHEMA MRKTO;
+CREATE SCHEMA IF NOT EXISTS MRKTO;
 
 CREATE TABLE employees (
-	id INT NOT NULL, 
-	first_name VARCHAR NOT NULL, 
-	last_name VARCHAR NOT NULL, 
-	email VARCHAR,
-	hire_date DATE DEFAULT current_date, 
-	department VARCHAR DEFAULT 'Unassigned'
-    PRIMARY KEY (id)
+    id INT NOT NULL PRIMARY KEY, -- one way to set the primary key
+    first_name VARCHAR(50) NOT NULL, 
+    last_name VARCHAR(50) NOT NULL, 
+    email VARCHAR(100),
+    hire_date DATE DEFAULT current_date, 
+    department VARCHAR(50) DEFAULT 'Unassigned'
 );
 
 CREATE TABLE employees_two (
@@ -26,21 +21,32 @@ CREATE TABLE employees_two (
     email VARCHAR(100) NOT NULL,
     hire_date DATE NOT NULL,
     department VARCHAR(50) NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id) -- one way to set the primary key
 );
 
--- ALTER
--- ALTER [object] [object_name] [command];
-ALTER TABLE employees ADD COLUMN age INT;
+
+SELECT * FROM employees;
+
+
+
+
+
+ALTER TABLE employees ADD COLUMN age INT
+;
 ALTER TABLE employees DROP COLUMN age;
-ALTER TABLE employees ALTER COLUMN dept SET DEFAULT 'Reassigned';
+ALTER TABLE employees ADD COLUMN age INT;
+ALTER TABLE employees ALTER COLUMN age TYPE INT;
+ALTER TABLE employees ALTER COLUMN age SET NOT NULL;
+
+UPDATE employees SET age = 15;
+
 
 -- INSERT
 INSERT INTO employees (id, first_name, last_name, email) VALUES
-(1, 'John', 'Doe', 'johndoe@example.com');
-(2, 'Jane', 'Smith', 'janesmith@example.com'),
-(3, 'Bob', 'Johnson', 'bobjohnson@example.com'),
-(4, 'Alice', 'Williams', 'alicewilliams@example.com');
+-- (1, 'John', 'Doe', 'johndoe@example.com'),
+(9, 'Jane', 'Smith', 'janesmith@example.com'),
+(11, 'Bob', 'Johnson', 'bobjohnson@example.com'),
+(12, 'Alice', 'Williams', 'alicewilliams@example.com');
 
 INSERT INTO employees_two (id, first_name, last_name, email, hire_date, department)
 VALUES
@@ -52,10 +58,11 @@ VALUES
 
 -- UPDATE
 UPDATE employees
-	SET first_name = 'Jane',
-		last_name = 'Doe',
-		email = 'janedoe@example.com'
-WHERE id = 2;
+SET 
+    first_name = 'Jane',
+    last_name = 'Doe',
+    email = 'janedoe@example.com'
+WHERE id = 8;
 
 -- DELETE
 -- DELETE FROM employees WHERE id = 3;
