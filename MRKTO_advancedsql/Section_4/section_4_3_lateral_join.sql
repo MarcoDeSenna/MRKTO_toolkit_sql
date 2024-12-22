@@ -4,7 +4,7 @@ CREATE TABLE users (
   email VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE orders (
+CREATE TABLE lateraljoin (
   order_id SERIAL PRIMARY KEY,
   user_id INTEGER NOT NULL REFERENCES users(user_id),
   order_date DATE NOT NULL,
@@ -16,7 +16,7 @@ INSERT INTO users (username, email) VALUES
   ('bob', 'bob@example.com'),
   ('charlie', 'charlie@example.com');
 
-INSERT INTO orders (user_id, order_date, total_amount) VALUES
+INSERT INTO lateraljoin (user_id, order_date, total_amount) VALUES
   (1, '2022-04-01', 50.00),
   (1, '2022-03-15', 25.00),
   (2, '2022-04-02', 100.00),
@@ -26,7 +26,7 @@ INSERT INTO orders (user_id, order_date, total_amount) VALUES
 
  
  
-select * from orders;
+select * from lateraljoin;
 select * from users;
  
  

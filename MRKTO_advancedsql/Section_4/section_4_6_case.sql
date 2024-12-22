@@ -15,14 +15,14 @@ INSERT INTO employees (name, salary, department, bonus) VALUES
 
 
 select 
-		name,
-		salary,
-		case
-			when salary < 60000 then 'entry level'
-			when salary < 100000 then 'mid'
-			when salary < 200000 then 'big baller'
-			when salary < 200000 or bonus > 0 then 'really big baller'
-			else 'uncaught exception'
+	name,
+	salary,
+	case
+		when salary <= 60000 then 'entry level'
+		when salary <= 100000 then 'mid'
+		when salary <= 200000 then 'big baller'
+		when salary <= 200000 or bonus > 0 then 'really big baller'
+		else 'uncaught exception'
 	end as salary_classification
 from
 	employees ;

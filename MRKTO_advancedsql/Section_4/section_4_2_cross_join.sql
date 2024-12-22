@@ -1,4 +1,4 @@
-create table class_unnormalized (
+ create table class_unnormalized (
 	student_id serial,
 	advisor varchar,
 	room varchar,
