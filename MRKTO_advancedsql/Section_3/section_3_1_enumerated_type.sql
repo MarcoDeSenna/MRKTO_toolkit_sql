@@ -28,5 +28,17 @@ add column another_day varchar check (another_day in ('Monday', 'Tuesday', 'Wedn
 
 insert into enum_demo(day_of_week, wage)
 values('Monday', 5);
-insert into enum_demo(wage)
-values('Monday', -4);
+insert into enum_demo(day_of_week, wage)
+values('Saturday', 4);
+
+SELECT * FROM enum_demo;
+
+UPDATE enum_demo
+	SET another_day	= 'Friday'
+	WHERE day_of_week = 'Monday';
+
+UPDATE enum_demo
+	SET random = 444
+	WHERE id = ; -- How to create a list of ids
+
+SELECT * FROM enum_demo;

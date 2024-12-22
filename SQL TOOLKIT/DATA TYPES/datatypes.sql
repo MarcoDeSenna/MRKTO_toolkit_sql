@@ -20,24 +20,24 @@ CREATE TABLE data_types_example (
     -- Temporal Types
     date_val DATE,
     time_val TIME,
-    timestamp_val TIMESTAMP,
-    timestamptz_val TIMESTAMPTZ,
-    interval_val INTERVAL,
+    timestamp_val TIMESTAMP, -- without timezone
+    timestamptz_val TIMESTAMPTZ, -- with timezone
+    interval_val INTERVAL, -- time interval
     
     
     -- JSON Types
-    json_val JSON,
-    jsonb_val JSONB,
+    json_val JSON, -- stored as text
+    jsonb_val JSONB, -- stored as binary
     
     -- Arrays
-    int_array INTEGER[],
-    text_array TEXT[],
+    int_array INTEGER[],-- array of integers
+    text_array TEXT[],-- array of text
 
     -- Money
-    money_val MONEY,
+    money_val MONEY, -- monetary value
     
     -- Enum (first create enum type)
-    status_val status_enum
+    status_val status_enum 
 );
 
 -- Example of creating an enum type

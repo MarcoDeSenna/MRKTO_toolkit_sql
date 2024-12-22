@@ -16,7 +16,7 @@ array_table ;
 
 -- Querying an ARRAY column
 SELECT *
-FROM mytable
+FROM array_table
 WHERE 2 = ANY(myarray);
 
 select * 
